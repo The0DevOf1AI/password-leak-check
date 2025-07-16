@@ -24,3 +24,21 @@ You can install the required dependency with:
 
 ```bash
 pip install requests
+
+---
+
+📄 Input Format
+Create a .txt file containing your passwords separated by commas.
+Example:
+
+Copy
+Edit
+123456,password123,mySecretPassword
+▶️ Usage
+Run the script from the command line, passing the file path as an argument:
+
+python password_checker.py passwords.txt
+Sample output:
+
+Your password: 123456 has been found 2345678 times. You should change it!
+Your password: mySecretPassword was NOT found. Carry on!
