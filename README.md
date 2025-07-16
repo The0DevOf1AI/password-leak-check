@@ -39,4 +39,5 @@ python password_checker.py passwords.txt
 ```
 ## Sample output:
 Your password: 123456 has been found 2345678 times. You should change it!.
+
 Your password: mySecretPassword was NOT found. Carry on!.
