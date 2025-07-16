@@ -3,6 +3,7 @@ import hashlib   # For hashing the password
 import sys       # To get command-line arguments
 
 
+
 # Function to send a request to the Pwned Passwords API with the first 5 chars of SHA-1 hash
 def request_api_data(query_char):
     url = 'https://api.pwnedpasswords.com/range/' + query_char
@@ -40,14 +41,23 @@ def pwned_api_checked(password):
 
 # Main function to handle all passwords passed from the command line
 def main(args):
-    for password in args:
-        count = pwned_api_checked(password)  # Check each password
-        if count:
-            print(f'Your password: {password} has been found {count} times. You should change it!')
-        else:
-            print(f"Your password: {password} was NOT found. Carry on!")
-    return 'done!'
+    for file in args:
+        try:
+            with open(str(file), 'r') as pass_file:
+                content = pass_file.read()
+                passwords = content.split(",")
+                for password in passwords:
+                    count = pwned_api_checked(password)  # Check each password
+                    if count:
+                        print(f'Your password: {password} has been found {count} times. You should change it!')
+                    else:
+                        print(f"Your password: {password} was NOT found. Carry on!")
+                return 'done!'    
+                
+        except FileNotFoundError:
+            print("Check your file path.")
 
 
 # Run the script with command-line arguments (excluding the script name itself)
-main(sys.argv[1:])
+if __name__ == '__main__':
+    main(sys.argv[1:])
