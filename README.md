@@ -27,7 +27,7 @@ pip install requests
 ```
 
 ## 📄 Input Format
-Create a .txt file containing your passwords separated by commas.
+Create a `.txt` file containing your passwords separated by commas.
 Example:
 
 123456,password123,mySecretPassword
