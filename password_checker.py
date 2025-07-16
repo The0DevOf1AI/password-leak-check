@@ -52,12 +52,13 @@ def main(args):
                         print(f'Your password: {password} has been found {count} times. You should change it!')
                     else:
                         print(f"Your password: {password} was NOT found. Carry on!")
-                return 'done!'    
-                
         except FileNotFoundError:
             print("Check your file path.")
+    return 'done!'    
+                
+        
 
 
 # Run the script with command-line arguments (excluding the script name itself)
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    sys.exit(main(sys.argv[1:]))
