@@ -30,7 +30,7 @@ pip install requests
 Create a `.txt` file containing your passwords separated by commas.
 Example:
 
-123456,password123,mySecretPassword
+123456, password123, mySecretPassword
 
 ## ▶️ Usage
 Run the script from the command line, passing the file path as an argument:
