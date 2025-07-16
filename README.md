@@ -1,26 +1,26 @@
-# Password Leak Checker
+# Password Leak Checker (File-Based)
 
-This Python script checks if a given password has been exposed in known data breaches by querying the [Have I Been Pwned (HIBP) Pwned Passwords API](https://haveibeenpwned.com/API/v3#PwnedPasswords).
+This Python script checks whether a list of passwords (stored in a file) have been exposed in known data breaches by querying the [Have I Been Pwned](https://haveibeenpwned.com/API/v3#PwnedPasswords) Pwned Passwords API.
 
-It uses the k-Anonymity technique by sending only the first 5 characters of the SHA-1 hash of the password to the API, protecting the full password hash and maintaining user privacy.
-
----
-
-## Features
-
-- Securely checks if a password has been leaked without sending the full password or full hash.
-- Uses SHA-1 hashing and k-Anonymity prefix search.
-- Supports checking multiple passwords passed as command-line arguments.
-- Reports how many times each password was found in data breaches.
+It uses SHA-1 hashing and the k-Anonymity technique to ensure that your full password is never sent to the API, protecting your privacy.
 
 ---
 
-## Requirements
+## 🔧 Features
+
+- Reads passwords from a `.txt` file (comma-separated).
+- Checks each password against the Pwned Passwords API.
+- Reports how many times each password has been found in data breaches.
+- Secure: never transmits the full password or hash.
+
+---
+
+## 🧰 Requirements
 
 - Python 3.x
 - `requests` library
 
-Install dependencies via pip if needed:
+You can install the required dependency with:
 
 ```bash
 pip install requests
